@@ -58,7 +58,7 @@
                                                 </div>
                                                 <span id="errorClave" class="text-danger"></span>
                                             </div>
-                                            <div class="col-md-12 text-end"> <a href="<?php echo BASE_URL . 'principal/reset'; ?>">Olvidaste tu contraseña?</a>
+                                            <div class="col-md-12 text-end"> <a href="<?php echo BASE_URL . 'principal/forgot'; ?>">Olvidaste tu contraseña?</a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="d-grid">
