@@ -6,10 +6,10 @@ class Usuarios extends Controller
     {
         parent::__construct();
         session_start();
-        if (empty($_SESSION['id_usuario'])) {
-            header('Location: ' . BASE_URL);
-            exit();
-        }
+        // if (empty($_SESSION['id_usuario'])) {
+        //     header('Location: ' . BASE_URL);
+        //     exit();
+        // }
         $this->id_usuario = $_SESSION['id_usuario'];
     }
     public function index()

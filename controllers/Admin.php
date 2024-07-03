@@ -14,20 +14,20 @@ class Admin extends Controller
     {
         parent::__construct();
         session_start();
-        if (empty($_SESSION['id_usuario'])) {
-            header('Location: ' . BASE_URL);
-            exit();
-        }
+        // if (empty($_SESSION['id_usuario'])) {
+        //     header('Location: ' . BASE_URL);
+        //     exit();
+        // }
         $this->id_usuario = $_SESSION['id_usuario'];
     }
     //reportes graficos
     public function index()
     {
         // ESTO ELIMINAR SI DA PROBLEMAS POR LA CONSOLA
-        if (!verificar('configuracion')) {
-            header('Location: ' . BASE_URL . 'admin/permisos');
-            exit();
-        }
+        // if (!verificar('configuracion')) {
+        //     header('Location: ' . BASE_URL . 'admin/permisos');
+        //     exit();
+        // }
         $data['title'] = 'Panel Administrativo';
         $data['script'] = 'index.js';
         $data['usuarios'] = $this->model->getTotales('usuarios');
@@ -41,10 +41,10 @@ class Admin extends Controller
     //datos de la empres
     public function datos()
     {
-        if (!verificar('configuracion')) {
-            header('Location: ' . BASE_URL . 'admin/permisos');
-            exit();
-        }
+        // if (!verificar('configuracion')) {
+        //     header('Location: ' . BASE_URL . 'admin/permisos');
+        //     exit();
+        // }
         $data['title'] = 'Datos de la Empresa';
         $data['script'] = 'admin.js';
         $data['empresa'] = $this->model->getDatos();
@@ -53,10 +53,10 @@ class Admin extends Controller
     //modificar datos
     public function modificar()
     {
-        if (!verificar('configuracion')) {
-            header('Location: ' . BASE_URL . 'admin/permisos');
-            exit();
-        }
+        // if (!verificar('configuracion')) {
+        //     header('Location: ' . BASE_URL . 'admin/permisos');
+        //     exit();
+        // }
         if (isset($_POST)) {
             $ruc = strClean($_POST['ruc']);
             $nombre = strClean($_POST['nombre']);
@@ -387,10 +387,10 @@ class Admin extends Controller
 
     public function listarLogs()
     {
-        if (!verificar('log de acceso')) {
-            header('Location: ' . BASE_URL . 'admin/permisos');
-            exit();
-        }
+        // if (!verificar('log de acceso')) {
+        //     header('Location: ' . BASE_URL . 'admin/permisos');
+        //     exit();
+        // }
         $data = $this->model->listarLogs();
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die();
@@ -398,14 +398,15 @@ class Admin extends Controller
 
     public function limpiarDatos()
     {
-        if (!verificar('log de acceso')) {
-            header('Location: ' . BASE_URL . 'admin/permisos/index');
-            exit();
-        }
-        if (!verificar('log de acceso')) {
-            header('Location: ' . BASE_URL . 'admin/permisos');
-            exit();
-        }
+        // if (!verificar('log de acceso')) {
+        //     header('Location: ' . BASE_URL . 'admin/permisos/index');
+        //     exit();
+        // }
+        // if (!verificar('log de acceso')) {
+        //     header('Location: ' . BASE_URL . 'admin/permisos');
+        //     exit();
+        // }
+        
         // if ($_SESSION['rol'] == 2) {
         //     header('Location: ' . BASE_URL . 'admin/permisos/index');
         //     exit;
