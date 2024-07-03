@@ -7,7 +7,6 @@ namespace Composer\Autoload;
 class ComposerStaticInit5c6546c1df1067cbb193920dd381dc05
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
     );
 
@@ -18,7 +17,6 @@ class ComposerStaticInit5c6546c1df1067cbb193920dd381dc05
         ),
         'S' => 
         array (
-            'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Svg\\' => 4,
             'Sabberworm\\CSS\\' => 15,
         ),
@@ -33,7 +31,6 @@ class ComposerStaticInit5c6546c1df1067cbb193920dd381dc05
         ),
         'M' => 
         array (
-            'MyCLabs\\Enum\\' => 13,
             'Mike42\\' => 7,
             'Matrix\\' => 7,
             'Masterminds\\' => 12,
@@ -56,10 +53,6 @@ class ComposerStaticInit5c6546c1df1067cbb193920dd381dc05
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
-        ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
         'Svg\\' => 
         array (
@@ -93,10 +86,6 @@ class ComposerStaticInit5c6546c1df1067cbb193920dd381dc05
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
-        'MyCLabs\\Enum\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
         ),
         'Mike42\\' => 
         array (
@@ -137,7 +126,6 @@ class ComposerStaticInit5c6546c1df1067cbb193920dd381dc05
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
-        'Stringable' => __DIR__ . '/..' . '/myclabs/php-enum/stubs/Stringable.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
