@@ -163,10 +163,10 @@ class Principal extends Controller
 
     public function errors()
     {
-        // if (empty($_SESSION['id_usuario'])) {
-        //     header('Location: ' . BASE_URL);
-        //     exit;
-        // }
+        if (empty($_SESSION['id_usuario'])) {
+            header('Location: ' . BASE_URL);
+            exit;
+        }
         $data['title'] = 'Página no Encontrada';
         $this->views->getView('admin', 'error', $data);
     }
