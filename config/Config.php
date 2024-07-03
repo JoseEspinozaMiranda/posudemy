@@ -9,6 +9,7 @@ define('TITLE', 'POS VENTA');
 define('MONEDA', 'S/. ');
 define('HOST_SMTP', 'smtp.gmail.com');
 define('USER_SMTP', 'espinozamirandajose1@gmail.com');
-define('CLAVE_SMTP', 'wifjcmeudbyjtpsw');
+// define('CLAVE_SMTP', 'wifjcmeudbyjtpsw');
+define('CLAVE_SMTP', 'arwwkrqlqmaclhoz');
 define('PUERTO_SMTP', 465);
 ?>
