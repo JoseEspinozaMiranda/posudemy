@@ -7,9 +7,9 @@
                 <div class="col col-xl-5">
                     <div class="card-body p-4">
                         <h4 class="font-weight-bold display-4">No tienes Permisos</h4>
-                        <p>You have reached the edge of the universe.
-                            <br>The page you requested could not be found.
-                            <br>Dont'worry and return to the previous page.
+                       <p>Has llegado al límite del universo.
+                            <br>La página que solicitaste no pudo ser encontrada.
+                            <br>No te preocupes, regresa a la página anterior o solicita permiso al administrador.
                         </p>
                         <div class="mt-5"> 
                             <a href="<?php echo BASE_URL . 'admin'; ?>" class="btn btn-primary btn-lg px-md-5 radius-30">Regresar</a>

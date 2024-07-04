@@ -5,7 +5,7 @@ class UsuariosModel extends Query{
     }
     public function getUsuarios($estado)
     {
-        $sql = "SELECT u.id, CONCAT(u.nombre, ' ', u.apellido) AS nombres, u.correo, u.telefono, u.direccion, r.nombre FROM usuarios u INNER JOIN roles r ON u.rol = r.id WHERE u.estado = $estado";
+        $sql = "SELECT u.id, CONCAT(u.nombre, ' ', u.apellido) AS nombres, u.correo, u.telefono, u.direccion, u.rol FROM usuarios u INNER JOIN roles r ON u.rol = r.id WHERE u.estado = $estado";
         return $this->selectAll($sql);
     }
     public function getRoles($estado)

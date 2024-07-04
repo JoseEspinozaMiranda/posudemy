@@ -31,11 +31,22 @@ class Usuarios extends Controller
         }
         $data = $this->model->getUsuarios(1);
         for ($i = 0; $i < count($data); $i++) {
+            if ($data[$i]['rol'] == 1) {
+                $data[$i]['acciones'] = '';
+            } else {
                 $data[$i]['acciones'] = '<div>
-                <button class="btn btn-danger" type="button" onclick="eliminarUsuario('.$data[$i]['id'].')"><i class="fas fa-times-circle"></i></button>
-                <button class="btn btn-info" type="button" onclick="editarUsuario('.$data[$i]['id'].')"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-danger btn-sm" type="button" onclick="eliminarUsuario('.$data[$i]['id'].')"><i class="fas fa-times-circle"></i></button>
+                <button class="btn btn-info btn-sm" type="button" onclick="editarUsuario('.$data[$i]['id'].')"><i class="fas fa-edit"></i></button>
                 </div';
-            $data[$i]['rol'] = '<span class="badge bg-success">'.$data[$i]['nombre'].'</span>';
+            }
+            
+            if ($data[$i]['rol'] == 1) {
+                $data[$i]['rol'] = '<span class="badge bg-success">ADMINISTRADOR</span>';
+            } else if ($data[$i]['rol'] == 2) {
+                $data[$i]['rol'] = '<span class="badge bg-dark">SUPERVISOR</span>';
+            } else {
+                $data[$i]['rol'] = '<span class="badge bg-info">VENDEDOR</span>';
+            }
         }
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
         die;

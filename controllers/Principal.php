@@ -69,6 +69,7 @@ class Principal extends Controller
         echo json_encode($res, JSON_UNESCAPED_UNICODE);
         die();
     }
+    
     public function forgot()
     {
         $data['title'] = 'Olvidaste tu Contraseña';
