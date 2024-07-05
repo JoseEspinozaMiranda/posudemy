@@ -406,14 +406,6 @@ class Admin extends Controller
             header('Location: ' . BASE_URL . 'admin/permisos');
             exit();
         }
-        // if ($_SESSION['rol'] == 2) {
-        //     header('Location: ' . BASE_URL . 'admin/permisos/index');
-        //     exit;
-        // }
-        // if ($_SESSION['rol'] == 2) {
-        //     header('Location: ' . BASE_URL . 'admin/permisos');
-        //     exit;
-        // }
         $data = $this->model->limpiarDatos();
         if (empty($data)) {
             $res = array('msg' => 'DATOS LIMPIADO POR COMPLETO...', 'type' => 'success');

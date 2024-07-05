@@ -62,7 +62,7 @@ class Roles extends Controller{
                         $res = array('msg' => 'ERROR AL MODIFICAR...', 'type' => 'error');
                     }
                 } else {
-                    $res = array('msg' => 'LA MEDIDA YA EXISTE EN LA BD...', 'type' => 'warning');
+                    $res = array('msg' => 'EL ROL YA EXISTE EN LA BD...', 'type' => 'warning');
                 }
             }
         }

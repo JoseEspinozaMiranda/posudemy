@@ -76,8 +76,7 @@
                         <?php }?>
                     </ul>
                 </li>
-                <?php }
-if (verificar('medidas') || verificar('categorias') || verificar('productos')) {?>
+                <?php } if (verificar('medidas') || verificar('categorias') || verificar('productos')) {?>
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class="fa-solid fa-clipboard-list"></i>

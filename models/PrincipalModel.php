@@ -6,7 +6,7 @@ class PrincipalModel extends Query{
     //datos para login
     public function getDatos($correo)
     {
-        $sql = "SELECT u.id, u.nombre, u.correo, u.perfil, u.clave, u.estado, r.permisos FROM usuarios u INNER JOIN roles r ON u.rol = r.id WHERE u.correo = '$correo'";
+        $sql = "SELECT u.id, u.nombre, u.correo, u.perfil, u.clave, u.estado, r.permisos FROM usuarios u INNER JOIN roles r ON u.rol = r.id WHERE u.correo = '$correo' AND u.estado = 1";
         return $this->select($sql);
     }
     public function verificarCorreo($correo)
