@@ -50,7 +50,6 @@ class Ventas extends Controller
             $fecha = date('Y-m-d');
             $hora = date('H:i:s');
             $metodo = $datos['metodo'];
-
             $resultSerie = $this->model->getSerie();
             $numSerie = ($resultSerie['total'] == null) ? 1 : $resultSerie['total'] + 1;
 

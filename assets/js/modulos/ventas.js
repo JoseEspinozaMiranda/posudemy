@@ -151,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
             cambio.value = nuevoCambio.toFixed(2);             
         }
     })
-
 })
 
 //cargar productos
