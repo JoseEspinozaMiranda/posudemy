@@ -70,9 +70,9 @@ class Ventas extends Controller
                         $result = $this->model->getProducto($producto['id']);
                         $data['id'] = $result['id'];
                         $data['nombre'] = $result['descripcion'];
-                        $data['precio'] = $result['precio_venta'];
+                        $data['precio'] = $producto['precio'];
                         $data['cantidad'] = $producto['cantidad'];
-                        $subTotal = $result['precio_venta'] * $producto['cantidad'];
+                        $subTotal = $producto['precio'] * $producto['cantidad'];
                         array_push($array['productos'], $data);
                         $total += $subTotal;
                     }
@@ -337,14 +337,14 @@ class Ventas extends Controller
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
                 $mail->Port       = PUERTO_SMTP;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-                //Recipients
+                //Recipients 
                 $mail->setFrom($data['empresa']['correo'], $data['empresa']['nombre']);
                 $mail->addAddress($data['venta']['correo']);
 
                 //Content
                 $mail->isHTML(true);
                 $mail->CharSet = 'UTF-8';                                  //Set email format to HTML
-                $mail->Subject = 'Comprobante - ' . TITLE;
+                $mail->Subject = TITLE . ' - ' . $data['venta']['serie'];
                 $mail->Body    = $html;
 
                 $mail->send();  

@@ -4,7 +4,7 @@
 }
 body{
     padding: 8px;
-}
+} 
 .datos-empresa{
     text-align: right;
     font-size: 13px;
@@ -12,6 +12,12 @@ body{
 .datos-empresa{
     width: 100%;
     margin-bottom: 10px;
+}
+
+.unoDos {
+    background-color: aqua;
+    font-size: 50px;
+    color: rgb(251, 6, 6);
 }
 
 img{
@@ -22,6 +28,7 @@ img{
 }
 .title{
     text-align: center;
+    font-weight: bold;
     padding: 10px;
 }
 

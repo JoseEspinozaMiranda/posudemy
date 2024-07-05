@@ -173,8 +173,10 @@ function mostrarProducto() {
                     res.productos.forEach(producto => {
                         html += `<tr>
                             <td>${producto.nombre}</td>
-                            <td>${producto.precio_venta}</td>
-                            <td width="100">
+                            <td width="200">
+                            <input type="number" class="form-control inputPrecio" data-id="${producto.id}" value="${producto.precio_venta}">
+                            </td>
+                            <td width="150">
                             <input type="number" class="form-control inputCantidad" data-id="${producto.id}" value="${producto.cantidad}">
                             </td>
                             <td>${producto.subTotalVenta}</td>
@@ -186,6 +188,7 @@ function mostrarProducto() {
                     totalPagarHidden.value = res.totalVentaSD;
                     btnEliminarProducto();
                     agregarCantidad();
+                    agregarPrecioVenta();
                 } else {
                     tblNuevaVenta.innerHTML = '';
                 }

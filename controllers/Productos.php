@@ -225,6 +225,8 @@ class Productos extends Controller
             $result['id'] = $row['id'];
             $result['label'] = $row['descripcion'];
             $result['stock'] = $row['cantidad'];
+            $result['precio_venta'] = $row['precio_venta'];
+            $result['precio_compra'] = $row['precio_compra'];
             array_push($array, $result);
         }
         echo json_encode($array, JSON_UNESCAPED_UNICODE);
@@ -244,11 +246,11 @@ class Productos extends Controller
                 $result = $this->model->editar($producto['id']);
                 $data['id'] = $result['id'];
                 $data['nombre'] = $result['descripcion'];
-                $data['precio_compra'] = $result['precio_compra'];
-                $data['precio_venta'] = $result['precio_venta'];
+                $data['precio_compra'] = number_format((empty($producto['precio'])) ? 0 : $producto['precio'], 2, '.', '');
+                $data['precio_venta'] = number_format((empty($producto['precio'])) ? 0 : $producto['precio'], 2, '.', '');
                 $data['cantidad'] = $producto['cantidad'];
-                $subTotalCompra = $result['precio_compra'] * $producto['cantidad'];
-                $subTotalVenta = $result['precio_venta'] * $producto['cantidad'];
+                $subTotalCompra = $data['precio_compra'] * $producto['cantidad'];
+                $subTotalVenta = $data['precio_venta'] * $producto['cantidad'];
                 $data['subTotalCompra'] = number_format($subTotalCompra, 2);
                 $data['subTotalVenta'] = number_format($subTotalVenta, 2);
                 array_push($array['productos'], $data);

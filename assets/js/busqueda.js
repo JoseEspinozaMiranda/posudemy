@@ -5,8 +5,8 @@ const nombre = document.querySelector('#nombre');
 const containerCodigo = document.querySelector('#containerCodigo');
 const containerNombre = document.querySelector('#containerNombre');
 
-const errorBusqueda = 
-document.querySelector('#errorBusqueda');
+const errorBusqueda =
+    document.querySelector('#errorBusqueda');
 
 const btnAccion = document.querySelector('#btnAccion');
 const totalPagar = document.querySelector('#totalPagar');
@@ -66,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         minLength: 2,
         select: function (event, ui) {
-            console.log(ui.item);
-            agregarProducto(ui.item.id, 1, ui.item.stock);
+            let precio = nombreKey == 'posCompra' ? ui.item.precio_compra : ui.item.precio_venta;
+            agregarProducto(ui.item.id, 1, ui.item.stock, precio);
             inputBuscarNombre.value = '';
             inputBuscarNombre.focus();
             return false;
@@ -116,8 +116,9 @@ function buscarProducto(valor) {
             const res = JSON.parse(this.responseText);
             errorBusqueda.textContent = '';
             if (res.estado) {
-                agregarProducto(res.datos.id, 1, res.datos.cantidad);                
-            }else{
+                let precio = nombreKey == 'posCompra' ? res.datos.precio_compra : res.datos.precio_venta;
+                agregarProducto(res.datos.id, 1, res.datos.cantidad, precio);
+            } else {
                 errorBusqueda.textContent = 'EL CÓDIGO NO EXISTE...';
                 // alertaPersonalizada('warning', 'CODIGO NO EXISTE...');
             }
@@ -128,13 +129,13 @@ function buscarProducto(valor) {
 }
 
 //agregar productos a localStorage
-function agregarProducto(idProducto, cantidad, stockActual) {
+function agregarProducto(idProducto, cantidad, stockActual, precio) {
     console.log(cantidad);
-        console.log(stockActual);
+    console.log(stockActual);
     if (localStorage.getItem(nombreKey) == null) {
         listaCarrito = [];
     } else {
-        
+
         if (nombreKey === 'posVenta' || nombreKey === 'posApartados') {
             let cantidadAgregado = 0;
             for (let i = 0; i < listaCarrito.length; i++) {
@@ -170,7 +171,8 @@ function agregarProducto(idProducto, cantidad, stockActual) {
 
     listaCarrito.push({
         id: idProducto,
-        cantidad: cantidad
+        cantidad: cantidad,
+        precio: precio
     })
     localStorage.setItem(nombreKey, JSON.stringify(listaCarrito));
     alertaPersonalizada('success', 'PRODUCTO AGREGADO...');
@@ -249,4 +251,26 @@ function cambiarCantidad(idProducto, cantidad) {
         mostrarProducto();
     }
 
+}
+
+// PRECIO EDITABLE - AGREGAR VENTA OPCIÓN PARA CAMBIAR EL PRECIO
+function agregarPrecioVenta() {
+    let lista = document.querySelectorAll('.inputPrecio');
+    for (let i = 0; i < lista.length; i++) {
+        lista[i].addEventListener('change', function () {
+            let idProducto = lista[i].getAttribute('data-id');
+            let precio = lista[i].value;
+            cambiarPrecio(idProducto, precio);
+        });
+    }
+}
+
+function cambiarPrecio(idProducto, precio) {
+    for (let i = 0; i < listaCarrito.length; i++) {
+        if (listaCarrito[i]['id'] == idProducto) {
+            listaCarrito[i]['precio'] = precio;
+        }
+    }
+    localStorage.setItem(nombreKey, JSON.stringify(listaCarrito));
+    mostrarProducto();
 }

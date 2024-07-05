@@ -147,7 +147,9 @@ function mostrarProducto() {
                     res.productos.forEach(producto => {
                         html += `<tr>
                             <td>${producto.nombre}</td>
-                            <td>${producto.precio_compra}</td>
+                            <td width="100">
+                            <input type="number" class="form-control inputPrecio" data-id="${producto.id}" value="${producto.precio_compra}" placeholder="Cantidad">
+                            </td>
                             <td width="100">
                             <input type="number" class="form-control inputCantidad" data-id="${producto.id}" value="${producto.cantidad}" placeholder="Cantidad">
                             </td>

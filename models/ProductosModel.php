@@ -56,13 +56,13 @@ class ProductosModel extends Query{
 
     public function buscarPorCodigo($valor)
     {
-        $sql = "SELECT id, descripcion, cantidad FROM productos WHERE codigo = '$valor' AND estado = 1";
+        $sql = "SELECT id, descripcion, cantidad, precio_compra, precio_venta FROM productos WHERE codigo = '$valor' AND estado = 1";
         return $this->select($sql);
     }
 
     public function buscarPorNombre($valor)
     {
-        $sql = "SELECT id, descripcion, cantidad FROM productos WHERE descripcion LIKE '%".$valor."%' AND estado = 1 LIMIT 10";
+        $sql = "SELECT id, descripcion, cantidad, precio_compra, precio_venta FROM productos WHERE descripcion LIKE '%".$valor."%' AND estado = 1 LIMIT 10";
         return $this->selectAll($sql);
     }
     
