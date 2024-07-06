@@ -96,7 +96,7 @@
                         <?php }?>
                     </ul>
                 </li>
-                <?php }if (verificar('proveedores')) {?>
+                <?php }if (verificar('clientes')) {?>
                 <li>
                     <a href="<?php echo BASE_URL . 'clientes'; ?>">
                         <div class="parent-icon"><i class="fa-solid fa-users"></i>

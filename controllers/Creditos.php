@@ -136,3 +136,4 @@ class Creditos extends Controller
         die();
     }
 }
+?>

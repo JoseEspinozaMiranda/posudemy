@@ -133,3 +133,4 @@ class Inventarios extends Controller
         $dompdf->stream('reporte.pdf', array('Attachment' => false));
     }
 }
+?>
