@@ -119,10 +119,20 @@
     </div>
     <p><b>Información del Comprobante:</b></p>
     <div class="datos-info">
-        <ul>
+        <!-- <ul>
             <li><strong><?= $data['venta']['identidad']; ?>: </strong> <?= $data['venta']['num_identidad']; ?></li>
             <li><strong>Nombre: </strong> <?= $data['venta']['nombre']; ?></li>
             <li><strong>Teléfono: </strong> <?= $data['venta']['telefono']; ?></li>
+        </ul> -->
+
+        <ul>
+            <li>FACTURA  ELECTRÓNICA: <?= $data['venta']['id']; ?></li>
+            <li><b>Fecha de emisión:</b> <?= date('Ymd:His'); ?></li>
+            <li><b>Total:</b> <?php echo number_format($data['venta']['total'], 2); ?></li>
+            <li><b>Cliente:</b> <?= $data['venta']['num_identidad']; ?><?= $data['venta']['nombre']; ?></li><br>
+            <li><b>Modifica a:</b> - <?= $data['venta']['id']; ?> </li>
+            <li><b>Tipo:</b> </li>
+            <li><b>Motivo:</b> </li>
         </ul>
     </div>
 
